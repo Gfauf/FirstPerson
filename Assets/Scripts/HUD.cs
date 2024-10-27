@@ -12,12 +12,13 @@ public class HUD : MonoBehaviour
     public TMP_Text enemiesLeft;
     public TMP_Text timeLeft;
     public GameObject gameOverImage;
+    public GameObject gameWinImage;
 
     public static int enemyCount;
 
     public float targetTime;
 
-    bool gameLost = false;
+    bool gameEnded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,8 +35,14 @@ public class HUD : MonoBehaviour
         UIText();
         if (targetTime <= 0)
         {
-            gameLost = true;
+            gameEnded = true;
             TimeEnded();
+        }
+
+        if (enemyCount <= 0)
+        {
+            gameEnded = true;
+            GameWon();
         }
     }
 
@@ -51,9 +58,21 @@ public class HUD : MonoBehaviour
     {
         gameOverImage.SetActive(true);
         Time.timeScale = 0;
-        if (gameLost && Input.GetKeyDown(KeyCode.R))
+        if (gameEnded && Input.GetKeyDown(KeyCode.R))
         {
-            gameLost = false;
+            gameEnded = false;
+            Time.timeScale = 1;
+            SceneManager.LoadScene(0);
+        }
+    }
+
+    public void GameWon()
+    {
+        gameWinImage.SetActive(true);
+        Time.timeScale = 0;
+        if (gameEnded && Input.GetKeyDown(KeyCode.R))
+        {
+            gameEnded = false;
             Time.timeScale = 1;
             SceneManager.LoadScene(0);
         }
