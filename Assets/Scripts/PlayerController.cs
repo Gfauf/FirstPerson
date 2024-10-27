@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -39,6 +41,17 @@ public class PlayerController : MonoBehaviour
             canJump = false;
         }
 
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            
+            speed *= 5f;
+        }
+        
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speed = 10f;
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -46,6 +59,12 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Floor"))
         {
             canJump = true;
+        }
+
+        if (collision.gameObject.CompareTag("Deathzone"))
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene(0);
         }
     }
 }

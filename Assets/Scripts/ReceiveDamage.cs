@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ReceiveDamage : MonoBehaviour
 {
@@ -44,6 +45,15 @@ public class ReceiveDamage : MonoBehaviour
         UpdateUI();
 
         if (health <= 0)
+        {
+            Destroy(gameObject);
+            HUD.enemyCount -= 1;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Deathzone"))
         {
             Destroy(gameObject);
         }

@@ -7,12 +7,12 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject objectPrefab;
     public Vector3 spawnPosition;
     public float bulletForce;
-    public static float bullets = 30f;
+    public static float bullets;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        bullets = 30f;
     }
 
     // Update is called once per frame
