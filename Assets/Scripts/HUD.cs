@@ -11,6 +11,7 @@ public class HUD : MonoBehaviour
     public TMP_Text bulletCount;
     public TMP_Text enemiesLeft;
     public TMP_Text timeLeft;
+    public static int enemyKills;
     public GameObject gameOverImage;
     public GameObject gameWinImage;
 

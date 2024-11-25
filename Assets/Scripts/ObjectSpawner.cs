@@ -12,7 +12,7 @@ public class ObjectSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bullets = 30f;
+        bullets = 60f;
     }
 
     // Update is called once per frame

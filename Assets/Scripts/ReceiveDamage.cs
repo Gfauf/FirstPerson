@@ -48,6 +48,7 @@ public class ReceiveDamage : MonoBehaviour
         {
             Destroy(gameObject);
             HUD.enemyCount -= 1;
+            HUD.enemyKills++;
         }
     }
 

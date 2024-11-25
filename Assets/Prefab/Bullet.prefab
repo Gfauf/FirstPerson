@@ -146,4 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6bd3925b679f9c4a850c59c345b3f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDamage: 25
+  hitVFXPrefab: {fileID: 8431451815638139756, guid: 776caf492943c754ab664e4219012212,
+    type: 3}
